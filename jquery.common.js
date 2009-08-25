@@ -1,9 +1,5 @@
 // A collection of common behavior classes that keeps the jQuery effect naming convention
 
-function id_from_href () {
-  return $(this).attr('href');
-}
-
 function load_fx () {
   
   $('a.show').click(function() {
