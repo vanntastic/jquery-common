@@ -48,8 +48,8 @@ function load_efx () {
 
 function getOpts (klass) {
   var klass_ary = klass.split("-");
-  if (klass_ary.length == "2") {
-    return klass_ary[1];
+  if (klass_ary.length >= "2") {
+    return isNaN(parseInt(klass_ary[1])) ? klass_ary[1] : parseInt(klass_ary[1]);
   }else{ 
     return null 
   };
