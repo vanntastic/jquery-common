@@ -1,46 +1,62 @@
 // A collection of common behavior classes that keeps the jQuery effect naming convention
 
-function load_fx () {
+function load_efx () {
   
-  $('a.show').click(function() {
-    $($(this).attr('href')).show();
+  $('a[class*=show]').click(function() {
+    opts = getOpts($(this).attr('class'));
+    $($(this).attr('href')).show(opts);
     return false;
   });
   
-  $('a.hide').click(function() {
-    $($(this).attr('href')).hide();
+  $('a[class*=hide]').click(function() {
+    opts = getOpts($(this).attr('class'));
+    $($(this).attr('href')).hide(opts);
     return false;
   });
   
-  $('a.slideDown').click(function() {
-    $($(this).attr('href')).slideDown();
+  $('a[class*=slideDown]').click(function() {
+    opts = getOpts($(this).attr('class'));
+    $($(this).attr('href')).slideDown(opts);
     return false;
   });
   
-  $('a.slideUp').click(function() {
-    $($(this).attr('href')).slideUp();
+  $('a[class*=slideUp]').click(function() {
+    opts = getOpts($(this).attr('class'));
+    $($(this).attr('href')).slideUp(opts);
     return false;
   });
   
-  $('a.fadeIn').click(function() {
-    $($(this).attr('href')).fadeIn();
+  $('a[class*=fadeIn]').click(function() {
+    opts = getOpts($(this).attr('class'));
+    $($(this).attr('href')).fadeIn(opts);
     return false;
   });
   
-  $('a.fadeOut').click(function() {
-    $($(this).attr('href')).fadeOut();
+  $('a[class*=fadeOut]').click(function() {
+    opts = getOpts($(this).attr('class'));
+    $($(this).attr('href')).fadeOut(opts);
     return false;
   });
   
-  $('a.toggle').click(function() {
-    $($(this).attr('href')).toggle();
+  $('a[class*=toggle]').click(function() {
+    opts = getOpts($(this).attr('class'));
+    $($(this).attr('href')).toggle(opts);
     return false;
   });
   
 }
 
+function getOpts (klass) {
+  var klass_ary = klass.split("-");
+  if (klass_ary.length == "2") {
+    return klass_ary[1];
+  }else{ 
+    return null 
+  };
+}
+
 $(document).ready(function() {
-  load_fx();
+  load_efx();
 });
 
 
